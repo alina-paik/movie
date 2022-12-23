@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
-  before_action :authentication, except: %i[index show]
-  before_action :find_category, only: %i[search_movies_by_category update destroy]
+  before_action :authentication, except: %i[index search_movies]
+  before_action :find_category, only: %i[search_movies update destroy]
   # GET /categories
   def index
     @categories = Category.all.order('name ASC')
@@ -9,8 +9,8 @@ class CategoriesController < ApplicationController
 
   # GET /categories/:id/movies?page=:page
   def search_movies
-    movies = @category.movies.page(params[:page])
-    render json: movies, status: :ok
+    @movies = @category.movies.page(params[:page])
+
   end
 
   # POST /categories

@@ -9,7 +9,8 @@ class MoviesController < ApplicationController
 
    # GET /movies/:id
    def show
-     render json: @movie, status: :ok
+     @movie
+     @categories = @movie.categories
    end
 
   # POST /movies
@@ -80,7 +81,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by(id: params[:id])
   end
   def movie_params
-    params.require(:movie).permit(:title, :description)
+    params.require(:movie).permit(:title, :title_image, :description)
   end
 
   def save_movie

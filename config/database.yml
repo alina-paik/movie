@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: IMDB_clone_view_development
+  database: IMDB_view_development
   pool: 5
   username: postgresUser
   password: postgresPW
@@ -12,7 +12,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: IMDB_clone_view_test
+  database: IMDB_view_test
   pool: 5
   username: postgresUser
   password: postgresPW
